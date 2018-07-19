@@ -8,4 +8,13 @@
 @file: cmd_docs.py
 @time: 2018/7/19 23:28
 """
+import os
 class CMD_DOCS:
+    '''
+    定义使用命令行操作cmd命令
+    '''
+    def get_cmd(self):
+        cmd = os.popen('')
+        return cmd
+
+
