@@ -5,6 +5,7 @@
 @author: 留仙洞
 @contact: 1451953028@qq.com
 @software: PyCharm
-@file: CMD_DOCS.py
+@file: cmd_docs.py
 @time: 2018/7/19 23:28
 """
+class CMD_DOCS:
