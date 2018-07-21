@@ -14,6 +14,10 @@ class Server:
         device_list = docs.get_cmd_docs('adb devices')
         # 'TOIJFQU8R8GMRWI7\tdevice'这是获取到设备后的字符，需要进行整改，取到\t前面的就行
         if len(device_list) > 2 :
+            '''
+            找到第二个列表内容，从‘\t'这里开始分割，
+            分割后第一部分内容为设备信息
+            '''
             device = device_list[1].split('\t')
             device_info = device[0]
             return device_info
