@@ -13,8 +13,6 @@ class CMD_DOCS:
     '''
     定义使用命令行操作cmd命令
     '''
-    def get_cmd(self):
-        cmd = os.popen('')
+    def get_cmd(self,device,port):
+        cmd = os.popen('appium -a'+ device + 'p'+ str(port)).readlines()
         return cmd
-
-
