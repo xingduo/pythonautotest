@@ -9,8 +9,8 @@
 @time: 2018/7/22 23:14
 """
 from base.base_driver import Base_Driver
-from util.get_by_local import Get_By_Local
-
+from util.get_by_local import GetByLocal
+import logging
 
 class ActionMethod:
     '''
@@ -20,8 +20,7 @@ class ActionMethod:
     def __init__(self):
         base_driver = Base_Driver()
         driver = self.base_driver.get_driver()
-
-    get_element_local = Get_By_Local()
+        get_element_local = GetByLocal()
 
 
     def input(self, value):
@@ -30,8 +29,9 @@ class ActionMethod:
         '''
         element = self.get_element_local.get_element()
         if element == None:
-           return '元素没找到'
+           return logging.info('元素没找到')
         element.send_keys(value)
+        logging.info('输入'+ value)
 
 
     def on_click(self):
@@ -39,13 +39,13 @@ class ActionMethod:
         封装点击操作
         :return:
         '''
+        element = self.get_element_local.get_element()
+        if element == None:
+            return logging.info('元素没找到')
+        element.on_click()
+        logging.info('点击元素'+ element)
 
 
 
-    def sleep_time(self):
 
 
-    # def get_size(self):
-
-
-    # def get_element(self):
