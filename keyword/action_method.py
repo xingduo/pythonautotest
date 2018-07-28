@@ -19,6 +19,7 @@ class ActionMethod:
         base_driver = Base_Driver()
         self.driver = base_driver.get_driver()
         self.get_element_local = GetByLocal()
+        get_size = self.get_size()
 
     def input(self,row,value):
         '''
@@ -40,16 +41,19 @@ class ActionMethod:
             return logging.info('元素没找到')
         element.click()
         logging.info('点击元素'+ element)
-
-    def swipe(self):
-        '''
-        封装滑动操作
-        :param self:
-        :return:
-        '''
-
+    # 
+    # def swipe(self):
+    #     '''
+    #     封装滑动操作
+    #     :param self:
+    #     :return:
+    #     '''
+    #     swipe = self.driver.swipe()
+    #
     def get_size(self):
-        x = self.driver
+        x = self.driver.get_window_size()['width']
+        y = self.driver.get_window_size()['heigth']
+        return x,y
 
 
 
