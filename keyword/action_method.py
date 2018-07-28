@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # coding:utf-8
-
 """
 @author: 留仙洞
 @contact: 1451953028@qq.com
@@ -16,23 +15,20 @@ class ActionMethod:
     '''
 	封装selenium操作函数
 	'''
-
     def __init__(self):
         base_driver = Base_Driver()
-        driver = self.base_driver.get_driver()
-        get_element_local = GetByLocal()
+        self.driver = base_driver.get_driver()
+        self.get_element_local = GetByLocal()
 
-
-    def input(self, value):
+    def input(self,row,value):
         '''
         封装操作动作s
         '''
-        element = self.get_element_local.get_element()
+        element = self.get_element_local.get_local_path(row)
         if element == None:
            return logging.info('元素没找到')
         element.send_keys(value)
         logging.info('输入'+ value)
-
 
     def on_click(self):
         '''
@@ -42,8 +38,20 @@ class ActionMethod:
         element = self.get_element_local.get_element()
         if element == None:
             return logging.info('元素没找到')
-        element.on_click()
+        element.click()
         logging.info('点击元素'+ element)
+
+    def swipe(self):
+        '''
+        封装滑动操作
+        :param self:
+        :return:
+        '''
+
+    def get_size(self):
+        x = self.driver
+
+
 
 
 
