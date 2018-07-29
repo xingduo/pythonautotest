@@ -10,6 +10,7 @@
 from base.base_driver import Base_Driver
 from util.get_by_local import GetByLocal
 import logging
+import time
 
 class ActionMethod:
     '''
@@ -41,19 +42,65 @@ class ActionMethod:
             return logging.info('元素没找到')
         element.click()
         logging.info('点击元素'+ element)
-    # 
-    # def swipe(self):
-    #     '''
-    #     封装滑动操作
-    #     :param self:
-    #     :return:
-    #     '''
-    #     swipe = self.driver.swipe()
-    #
+
+    def swipe_left(self):
+        '''
+        封装滑动操作
+        :param self:
+        :return:
+        '''
+        x1 = self.get_size()[0]/10*9
+        y1 = self.get_size()[1]/2
+        x = self.get_size()[0]/10
+        # swipe有4个左边参数，数值2000表示坐标移动的时间
+        self.driver.swipe(x1,y1,x,y1,2000)
+        logging.info('向左滑动')
+    def swipe_rigth(self):
+        '''
+        封装滑动操作
+        :param self:
+        :return:
+        '''
+        x1 = self.get_size()[0]/10
+        y1 = self.get_size()[1]/2
+        x = self.get_size()[0]/10*9
+        # swipe有4个左边参数，数值2000表示坐标移动的时间
+        self.driver.swipe(x1,y1,x,y1,2000)
+        logging.info('向右滑动')
+    def swipe_up(self):
+        '''
+        封装滑动操作
+        :param self:
+        :return:
+        '''
+        x = self.get_size()[0]/2
+        y1 = self.get_size()[1]/10*6
+        y = self.get_size()[1]/10*2
+        # swipe有4个左边参数，数值2000表示坐标移动的时间
+        self.driver.swipe(x,y1,x,y,2000)
+        logging.info('向上滑动')
+    def swipe_down(self):
+        '''
+        封装滑动操作
+        :param self:
+        :return:
+        '''
+        x = self.get_size()[0]/2
+        y1 = self.get_size()[1]/10
+        y = self.get_size()[1]/10*9
+        # swipe有4个左边参数，数值2000表示坐标移动的时间
+        self.driver.swipe(x,y1,x,y,2000)
+        logging.info('向下滑动')
+
     def get_size(self):
         x = self.driver.get_window_size()['width']
         y = self.driver.get_window_size()['heigth']
-        return x,y
+        return x,y,
+    def sleep_time(self,t):
+        time.sleep(t)
+        logging.info('等待')
+
+
 
 
 

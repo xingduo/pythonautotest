@@ -1,10 +1,11 @@
 #coding = utf-8
 from appium import webdriver
 class Base_Driver:
+
     '''
     获取设备信息
     '''
-    def get_driver(self,driverName):
+    def get_driver(self,deviceName):
 
         '''
         获取driver驱动
