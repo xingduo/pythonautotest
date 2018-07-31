@@ -38,7 +38,11 @@ class RunMain:
                 else:
                     data.write_value(i,'fail')
 
-
+'''
+if __name__ == '__main__':
+    run = RunMain()
+    run.run_method()
+'''
 
 
 
